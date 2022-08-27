@@ -12,7 +12,7 @@ app.use(Bodyparser.json())
 app.use(express.static('./dist/course-app'))
 Mongoose.connect("mongodb+srv://purna_mongo:saraspurna1@cluster0.rgyni.mongodb.net/coursedata?retryWrites=true&w=majority")
 
-app.get("/api/",(req,res)=>{res.send("Hello User")})
+//app.get("/api/",(req,res)=>{res.send("Hello User")})
 app.post("/api/addcourse",async(req,res)=>{
     const data=req.body
     const ob=new courseModel(data)
@@ -27,7 +27,7 @@ app.post("/api/addcourse",async(req,res)=>{
         }
     )
     })
-app.get("/viewcourse",async(req,res)=>{
+app.get("/api/viewcourse",async(req,res)=>{
     courseModel.find(
         (error,data)=>{
             if(error){res.send(error)}
@@ -35,9 +35,9 @@ app.get("/viewcourse",async(req,res)=>{
         }
     )
    })
-app.get("/searchcourse",(req,res)=>{res.send("You can search for a course here")})
-app.get("/updatecourse",(req,res)=>(res.send("Update a course")))
-app.get("/deletecourse",(req,res)=>{res.send("Delete a course")})
+//app.get("/searchcourse",(req,res)=>{res.send("You can search for a course here")})
+//app.get("/updatecourse",(req,res)=>(res.send("Update a course")))
+//app.get("/deletecourse",(req,res)=>{res.send("Delete a course")})
 
 app.get('/*',function(req,res){
     res.sendFile(path.join(__dirname+'/dist/course-app/index.html'))
