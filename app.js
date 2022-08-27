@@ -3,7 +3,7 @@ const Mongoose=require("mongoose")
 const Bodyparser=require("body-parser")
 const Cors=require("cors")
 const {courseModel}=require("./courseModel")
-const path=require(path)
+const path=require('path')
 const app=Express()
 
 app.use(Cors())
