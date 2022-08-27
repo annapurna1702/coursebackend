@@ -1,15 +1,15 @@
 const Express=require("express")
 const Mongoose=require("mongoose")
 const Bodyparser=require("body-parser")
-const Cors=require("cors")
+const cors=require("cors")
 const {courseModel}=require("./courseModel")
 const path=require('path')
 const app=Express()
 
-app.use(Cors())
+app.use(cors())
 app.use(Bodyparser.urlencoded({extended:true}))
 app.use(Bodyparser.json())
-app.use(express.static('./dist/course-app'))
+app.use(Express.static('./dist/course-app'))
 Mongoose.connect("mongodb+srv://purna_mongo:saraspurna1@cluster0.rgyni.mongodb.net/coursedata?retryWrites=true&w=majority")
 
 //app.get("/api/",(req,res)=>{res.send("Hello User")})
